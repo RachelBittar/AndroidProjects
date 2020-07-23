@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/visa"
+            android:layout_width="115dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="250sp"
+            android:src="@drawable/visa"
+            android:visibility="invisible" />
+
+
+        <ImageView
+            android:id="@+id/mastercard"
+            android:layout_width="115dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="250sp"
+            android:src="@drawable/mastercard"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/discover"
+            android:layout_width="115dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="250sp"
+            android:src="@drawable/discover"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/americaexpress"
+            android:layout_width="115dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="250sp"
+            android:src="@drawable/american"
+            android:visibility="invisible" />
+
+    </FrameLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16sp"
+        android:text="Credit Card number"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/cc_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="            -                 -               -     " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="format MM YY"
+        android:paddingTop="16sp"
+        android:text="Expiration date "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvFromDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/date_selector"
+        android:editable="true"
+        android:onClick="getExpDate"
+        android:paddingTop="16sp"
+        android:text="Click to add exp date"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16sp"
+        android:text="CVV "
+        android:textSize="18sp" />
+
+
+    <EditText
+        android:id="@+id/cc_cvv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16sp"
+        android:text="First name: "
+        android:textSize="18sp" />
+
+
+    <EditText
+        android:id="@+id/cc_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16sp"
+        android:text="Last name: "
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/cc_lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:onClick="AddCCNumber"
+        android:text="Add " />
+
+
+</LinearLayout>

@@ -1,0 +1,73 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="bittar.rachel.myapplication"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="28"
+8-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml
+10
+11    <application
+11-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:5:5-19:19
+12        android:allowBackup="true"
+12-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:6:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.0.1] /Users/rachelbittar/.gradle/caches/transforms-2/files-2.1/4d9abafb8676a9119a7f3735548ea953/core-1.0.1/AndroidManifest.xml:22:18-86
+14        android:debuggable="true"
+15        android:extractNativeLibs="false"
+16        android:icon="@mipmap/ic_launcher"
+16-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:7:9-43
+17        android:label="@string/app_name"
+17-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:8:9-41
+18        android:roundIcon="@mipmap/ic_launcher_round"
+18-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:9:9-54
+19        android:supportsRtl="true"
+19-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:10:9-35
+20        android:testOnly="true"
+21        android:theme="@style/AppTheme" >
+21-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:11:9-40
+22        <activity android:name="bittar.rachel.myapplication.MainActivity" >
+22-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:12:9-18:20
+22-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:12:19-47
+23            <intent-filter>
+23-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:13:13-17:29
+24                <action android:name="android.intent.action.MAIN" />
+24-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:14:17-69
+24-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:14:25-66
+25
+26                <category android:name="android.intent.category.LAUNCHER" />
+26-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:16:17-77
+26-->/Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/mobile/src/main/AndroidManifest.xml:16:27-74
+27            </intent-filter>
+28        </activity>
+29
+30        <meta-data
+30-->[:shared] /Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/shared/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-14:59
+31            android:name="com.google.android.gms.car.application"
+31-->[:shared] /Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/shared/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-66
+32            android:resource="@xml/automotive_app_desc" />
+32-->[:shared] /Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/shared/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-56
+33        <!--
+34         Main music service, provides media browsing and media playback services to
+35         consumers through MediaBrowserService and MediaSession. Consumers connect to it through
+36         MediaBrowser (for browsing) and MediaController (for playback control)
+37        -->
+38        <service
+38-->[:shared] /Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/shared/build/intermediates/library_manifest/debug/AndroidManifest.xml:21:9-27:19
+39            android:name="bittar.rachel.myapplication.shared.MyMusicService"
+39-->[:shared] /Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/shared/build/intermediates/library_manifest/debug/AndroidManifest.xml:22:13-77
+40            android:exported="true" >
+40-->[:shared] /Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/shared/build/intermediates/library_manifest/debug/AndroidManifest.xml:23:13-36
+41            <intent-filter>
+41-->[:shared] /Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/shared/build/intermediates/library_manifest/debug/AndroidManifest.xml:24:13-26:29
+42                <action android:name="android.media.browse.MediaBrowserService" />
+42-->[:shared] /Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/shared/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:17-83
+42-->[:shared] /Users/rachelbittar/AndroidStudioProjects/AndroidProjects/MyApplication2/shared/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:25-80
+43            </intent-filter>
+44        </service>
+45    </application>
+46
+47</manifest>
