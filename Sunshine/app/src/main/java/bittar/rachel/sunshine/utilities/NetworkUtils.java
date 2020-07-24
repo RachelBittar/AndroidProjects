@@ -43,11 +43,9 @@ public final class NetworkUtils {
      * we are not going to show you how to do so in this course.
      */
 
-    /* The format we want our API to return */
+
     private static final String format = "json";
-    /* The units we want our API to return */
     private static final String units = "metric";
-    /* The number of days we want our API to return */
     private static final int numDays = 14;
 
     final static String QUERY_PARAM = "q";
@@ -57,38 +55,19 @@ public final class NetworkUtils {
     final static String UNITS_PARAM = "units";
     final static String DAYS_PARAM = "cnt";
 
-    /**
-     * Builds the URL used to talk to the weather server using a location. This location is based
-     * on the query capabilities of the weather provider that we are using.
-     *
-     * @param locationQuery The location that will be queried for.
-     * @return The URL to use to query the weather server.
-     */
+
     public static URL buildUrl(String locationQuery) {
         /** This will be implemented in a future lesson **/
         return null;
     }
 
-    /**
-     * Builds the URL used to talk to the weather server using latitude and longitude of a
-     * location.
-     *
-     * @param lat The latitude of the location
-     * @param lon The longitude of the location
-     * @return The Url to use to query the weather server.
-     */
+
     public static URL buildUrl(Double lat, Double lon) {
         /** This will be implemented in a future lesson **/
         return null;
     }
 
-    /**
-     * This method returns the entire result from the HTTP response.
-     *
-     * @param url The URL to fetch the HTTP response from.
-     * @return The contents of the HTTP response.
-     * @throws IOException Related to network and stream reading
-     */
+
     public static String getResponseFromHttpUrl(URL url) throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         try {
