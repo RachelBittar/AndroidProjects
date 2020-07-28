@@ -16,7 +16,6 @@ public class AirportAdapter  extends RecyclerView.Adapter<AirportAdapter.ViewHol
     List<Airport> mEntries;
 
     public AirportAdapter(Context applicationContext, List<Airport> airports) {
-
         mContext = applicationContext;
         mEntries = airports;
     }

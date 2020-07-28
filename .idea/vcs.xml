@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AdvancedAndroid_Squawker" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/FavoriteToy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/TravelDreams" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Trivia" vcs="Git" />
+  </component>
+</project>

@@ -27,12 +27,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadWeatherData() {
-        String location = SunshinePreferences.getPreferredWeatherLocation(this);
+
+        String location = SunshinePreferences.getPreferredWeatherLocation(this); //default
         new FetchWeatherTask().execute(location);
+
     }
 
     // Create a class that extends AsyncTask to perform network requests
-
     public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
         @Override
@@ -46,10 +47,11 @@ public class MainActivity extends AppCompatActivity {
             URL weatherRequestUrl = NetworkUtils.buildUrl(location);  //build url
 
             try {
-                String     jsonWeatherResponse = NetworkUtils.getResponseFromHttpUrl(weatherRequestUrl);
-                String[] simpleJsonWeatherData = OpenWeatherJsonUtils.getSimpleWeatherStringsFromJson(MainActivity.this, jsonWeatherResponse);
+                    String jsonWeatherResponse = NetworkUtils.getResponseFromHttpUrl(weatherRequestUrl);
+                    String[] simpleJsonWeatherData = OpenWeatherJsonUtils.
+                            getSimpleWeatherStringsFromJson(MainActivity.this, jsonWeatherResponse);
 
-                return simpleJsonWeatherData;
+                    return simpleJsonWeatherData;
 
             } catch (Exception e) {
                 e.printStackTrace();

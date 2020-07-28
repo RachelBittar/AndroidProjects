@@ -1,147 +1,80 @@
 package com.hfad.findmyflight;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import java.net.URL;
 import java.util.ArrayList;
+import com.hfad.findmyflight.data.*;
+import com.hfad.findmyflight.utilities.*;
 
 
 public class MainActivity extends AppCompatActivity {
 
 
-    Airport airportFrom;
-    Airport airportTo;
-    Boolean isSaved=false;
-    TextView fromtxt = null;
-    TextView totxt = null;
+    Airport airportFrom, airportTo;
+
+    TextView  from_airport_txt = null;
+    TextView  to_airport_txt = null;
     ArrayList<Airport> airports = null;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fromtxt = (TextView) findViewById(R.id.getFromtxt);
-        totxt = (TextView) findViewById(R.id.getToTxt);
+        from_airport_txt = (TextView) findViewById(R.id.getFromtxt);
+        to_airport_txt = (TextView) findViewById(R.id.getToTxt);
 
-        Intent intent = new Intent(this, GetRouteService.class);
-        startService(intent);
-
-        Log.d("Main", "onCreate");
-
-        if (savedInstanceState !=null) {
-            isSaved = savedInstanceState.getBoolean("Saved");
-            Log.d("Main", "savedInstanceState !=null" + isSaved);
-        }
-        Log.d("Main", "savedInstanceState  -> " + savedInstanceState);
-
-        Intent intent1 = getIntent();
-        if ((intent1.getExtras() != null)) {
-           //    airportFrom = intent1.getParcelableExtra("from");
-               airports = intent1.getParcelableArrayListExtra("from_to");
-               if(airports!=null) {
-                 airportTo = airports.get(1);
-            }
-
-        }
-
-
-        if(savedInstanceState==null){
-            getReadFrom();
-
-            Log.d("Main ", " getReadFrom() " + savedInstanceState);
-        }
-        else{
-
-            Log.d("Main From", " getReadTo() " + savedInstanceState);
-        }
+        loadAirportData();
 
     }
+
+    private void loadAirportData() {
+
+        String airport = FligthsPreferences.getDefaulAirportLocation(this);
+        new FetchAirportTask().execute(airport);
+    }
+
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-
-        isSaved = true;
-        savedInstanceState.putBoolean("Saved", isSaved);
-        Log.d("Main", "onSaveInstanceState(Bundle savedInstanceState) " + savedInstanceState.getBoolean("Saved")) ;
         super.onSaveInstanceState(savedInstanceState);
-
     }
 
 
 
-    public void getReadFrom() {
+    public class FetchAirportTask extends AsyncTask<String, Void, String[]> {
 
-        if (airportFrom != null) {
-            fromtxt.setText(airportFrom.getIATA3());
-            if(airportTo!=null){
-                fromtxt.setText(airportFrom.getIATA3());
-                totxt.setText("000");
+        @Override
+        protected String[] doInBackground(String... params) {
+
+            if (params.length == 0) {
+                return null;
+            }
+
+            String airport = params[0];
+            URL airportRequestUrl = NetworkUtils.buildUrl(airport);  //build url
+
+            try {
+                String jsonDataResponse = NetworkUtils.getResponseFromHttpUrl(airportRequestUrl);
+                String[] simpleJsonData = OpenJsonUtils.getSimpleAirportStringsFromJson(MainActivity.this, jsonDataResponse);
+
+                return simpleJsonData;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
-    }
-
-
-
-
-    public void getReadTo() {
-
-        Intent intent2 = getIntent();
-        if ((intent2.getExtras() != null)) {
-            airports = intent2.getParcelableArrayListExtra("from_to");
-            totxt.setText(airports.toString());
-        }
-
-    }
-
-
-
-
-    public void getFrom(View view) {
-        Intent intent = new Intent(this, From.class);
-        startActivity(intent);
-    }
-
-
-    public void getTo(View view) {
-        Intent intent2 = new Intent(this, To.class);
-        intent2.putExtra("from_to", airportFrom);
-        startActivity(intent2);
-
 
 
     }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        getReadFrom();
-
-
-    }
-
-
-
-
-
-    @Override
-    protected void onPause(){
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop(){
-        super.onStop();
-
-    }
-
-
 }
