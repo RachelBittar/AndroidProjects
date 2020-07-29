@@ -19,8 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
     Airport airportFrom, airportTo;
 
-    TextView  from_airport_txt = null;
-    TextView  to_airport_txt = null;
+    TextView  from_txt = null;
+    TextView  to_txt = null;
+
     ArrayList<Airport> airports = null;
 
 
@@ -30,17 +31,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        from_airport_txt = (TextView) findViewById(R.id.getFromtxt);
-        to_airport_txt = (TextView) findViewById(R.id.getToTxt);
+        from_txt = (TextView) findViewById(R.id.getFromtxt);
+        to_txt = (TextView) findViewById(R.id.getToTxt);            //Location
 
-        loadAirportData();
+        loadAirportData();                                          //Find Airport in current location or another location
 
     }
 
-    private void loadAirportData() {
+    private void loadAirportData() {    //Default is current location
 
-        String airport = FligthsPreferences.getDefaulAirportLocation(this);
-        new FetchAirportTask().execute(airport);
+        String location = FligthsPreferences.getDefaultLocation(this);
+        new FetchAirportTask().execute(location);
     }
 
 

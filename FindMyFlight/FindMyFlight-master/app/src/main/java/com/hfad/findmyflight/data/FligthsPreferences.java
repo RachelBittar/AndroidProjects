@@ -10,7 +10,7 @@ public class FligthsPreferences {
     public static final String to__Airport  = "airport_name";
     private static final String DEFAULT_AIRPORT_LOCATION = "AAA";
 
-    public static String getDefaulAirportLocation(Context context) {
+    public static String getDefaultLocation(Context context) {
         /** This will be implemented in a future lesson **/
         return DEFAULT_AIRPORT_LOCATION;
     }
